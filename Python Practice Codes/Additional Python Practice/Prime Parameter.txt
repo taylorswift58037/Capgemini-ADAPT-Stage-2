@@ -1,0 +1,17 @@
+def isPrime(n):
+    for i in range(2,n//2):
+        if(n%i==0):
+            print("COMPOSITE")
+            return
+    print("PRIME")
+
+t = int(input())
+if t>=1 and t<=100:
+    for i in range(t):
+        a = int(input())
+        if a>=2 and a<=1000:
+            isPrime(a)
+        else:
+            print("Out of Range")
+else:
+    print("Out of Range")
