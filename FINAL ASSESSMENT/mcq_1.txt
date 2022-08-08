@@ -1,0 +1,270 @@
+1. Which statement about a valid .java file is true
+-> It may define at most one public class
+------------------------------------------------------
+2. Which of these statements is FALSE?
+-> Methods of an object may change values of its attributes
+					OR(Only one of them is correct)
+-> Attributes and methods of an object are interchangeable
+-------------------------------------------------------
+3. Can we use 'catch()' without passing arguments in it?
+-> No
+--------------------------------------------------------
+4. In case of 'try' & 'catch' block, is it possible to use only 'try' block instead of using 'catch'?
+-> Yes
+---------------------------------------------------------
+5. Which of the following is a correct implementation of method overloading?
+-> void methodA(){} void methodA(int a){} 
+----------------------------------------------------------
+6. On which platform java runs?
+-> All (Windows, Mac, Linux)
+----------------------------------------------------------
+7. Java program processing always starts with 'main()' method.
+-> Yes
+-----------------------------------------------------------
+8. What is correct about an instance variable of type string
+-> it defaults to null
+------------------------------------------------------------
+9. Which of the following interfaces is at the top of collection
+framework hierarchy?
+-> java.util.collection
+-------------------------------------------------------------
+10. Which of the following term is not associated with exception 
+handling?
+-> thrown
+--------------------------------------------------------------
+11. Which of the following are not java modifiers?
+-> friendly
+--------------------------------------------------------------
+12. In java code, the line that begins with /* and ends with */ is known as?
+-> Multiline comment
+--------------------------------------------------------------
+13. Which of these is used to perform all input & output operations in java. 
+-> Streams
+---------------------------------------------------------------
+14. Which of these classes are used by Byte streams for input and output
+operation?
+-> InputStream
+----------------------------------------------------------------
+15. Which of these interface declares core method that all collections 
+will have?
+-> Collection
+-----------------------------------------------------------------
+16. What are the major components of JDBC?
+-> DriverManager, Driver, Connection, Statement, and ResultSet
+-----------------------------------------------------------------
+17. Which of the following is not a valid statement in JDBC?
+-> QueryStatement
+------------------------------------------------------------------
+18. Which of the following does not allow duplicate objects in a collection?
+-> java.util.Set
+-------------------------------------------------------------------
+19. 
+	1. Given:
+	2. import java.io.*;
+	3. class TestSuper {
+	4. TestSuper(int i) throws Exception { 
+	5.throw new IOException();
+	6.}
+	7.}
+	8. class TestSub extends TestSuper {} 
+	9. public class Test { 
+	10. public static void main(String[] args) {
+	11.new TestSub();
+	12.}
+	13.}
+	
+-> Compilation fails at line 8
+--------------------------------------------------------------
+20. What is the output for the below code?
+
+class Test{
+public static void main(String args[]){
+try{
+System.out.println("one");
+System.exit(0);
+}catch(Exception e){
+System.out.println("two"); }
+finally{
+System.out.println("three");
+}}}
+
+-> One
+------------------------------------------------------------
+21. What will be the output of the code? 
+class Test 
+{ 
+public static void main(String[] args){
+try {
+int x=0;
+int y=5/x;
+catch (Exception e) {
+System.out.println("Exception");}
+} catch (ArithmeticException ae) {
+System.out.println(" Arithmetic Exception");
+}
+System.out.println("finished")
+}}
+
+-> Compilation Fails
+-----------------------------------------------------------
+22. What is the output of following code?
+public class Test
+{
+public static void main(String[] args)
+{
+	System.out.println("String " +1/0);
+}
+}
+
+-> Runtime Exception
+-------------------------------------------------------------
+23. Predict The Output.
+class Emp{
+String name;
+Emp(String name){
+this.name = name;
+}}
+public class Test {
+public static void main(String[] args){
+Emp e[][] = new Emp[2][];
+System.out.println(e[2][1]);
+}}
+
+-> ArrayIndexOutOfBound
+---------------------------------------------------------------
+24. Predict the output.
+public static void main(String args[]){
+System.out.println("Before Try");
+try {}
+catch(java.io.IOException t)
+{
+System.out.println("Inside Catch");
+} 
+System.out.println("At the End");
+}
+
+-> Compilation error (Unreachable Catch block)
+--------------------------------------------------------
+25. Predict the output
+class MyException extends Throwable{}
+public class Test Throwable { 
+public static void main(String args[]) {
+try { 
+test();
+}catch(Throwable ie) {
+System.out.println("Exception");
+}
+}
+static void test() throws Throwable { 
+throw new MyException();
+}
+}
+
+-> Prints Exception
+------------------------------------------------------------
+26. 
+public static void main(String args[]){
+System.out.println("Before Try");
+try{}
+catch(Throwable t | Exception e){
+System.out.println("Inside Catch");
+}
+System.out.println("At the End");
+}
+
+-> Compilation error as catch block cannot take more than
+one exception object
+---------------------------------------------------------------
+27.
+public class Test { 
+public static void main(String argv[]) {
+ArrayList list = new ArrayList();
+ArrayList listStr = list;
+ArrayList listBuf = list;
+listStr.add(0, "Hello");
+String buff (String) listBuf.get(0); System.out.println(buff.toString());
+}}
+
+-> Hello
+---------------------------------------------------------------
+28. 
+class Test{
+public static void main(String[] args) { 
+Map m = new HashMap(); 
+m.put(1, "hello"); 
+m.put(2, "welcome");
+System.out.println(m);
+}}
+
+-> {1=hello, 2=welcome}
+----------------------------------------------------------------
+29.
+class Test {
+public static void main(String args[]) {
+ArrayList obj = new ArrayList();
+obj.add("A");
+obj.add("B");
+obj.add("C");
+obj.add(1, "D"); System.out.println(obj);
+}
+}
+
+-> A, D, B, C
+----------------------------------------------------------------
+30.
+import java.util.*;
+class Test {
+    public static void main(String args[]) {
+        HashSet set1 = new HashSet();
+        HashSet set2 = new HashSet();
+        set1.add("one");
+        set1.add("two");
+        set1.add("three");
+        set2.add("four");
+        set1.addAll(set2);
+        System.out.println(set1);        
+}}
+
+-> [four, one, two, three] (All the elements will be printed)
+------------------------------------------------------------------
+31. 
+class Vehicle
+{
+    int vehicleNo = 123;
+    Vehicle()
+    {
+        vehicleNo = 456;
+    }
+    @Override
+    public String toString()
+    {
+        return "Vehicle no " + vehicleNo;
+    }
+}
+class Test {
+    public static void main(String args[]) {
+    HashSet<Vehicle> s = new HashSet<>();
+    s.add(new Vehicle());
+    s.add(new Vehicle())
+    for(Vehicle v : s)
+    {System.out.println(v);}
+    }}
+
+-> Vehicle 456(Prints 2 time)
+   Vehicle 456
+================================================================
+----------------------------EOF---------------------------------
+================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
