@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Source {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		String str = in.nextLine();
+		int len = str.length();
+		char seenArr[] = new char[len];
+		int freqArr[] = new int[len];
+		int idx = 0;
+		for (int i = 0; i < len; i++) {
+			char ch = str.charAt(i);
+			if (Character.isWhitespace(ch)) {
+				continue;
+			}
+			boolean seen = false;
+			for (int j = 0; j < idx; j++) {
+				if (ch == seenArr[j]) {
+					seen = true;
+					break;
+				}
+			}
+			if (seen) {
+				continue;
+				}
+			int f = 1;
+			for (int k = i + 1; k < len; k++) {
+				if (ch == str.charAt(k)) {
+					f++;
+					}
+				}
+				seenArr[idx] = ch;
+				freqArr[idx] = f;
+				idx++;
+			}
+			for (int i = 0; i < idx; i++) {
+				System.out.print(seenArr[i] + " ");
+				}
+			System.out.println();
+			for (int i = 0; i < idx; i++) {
+				System.out.print(freqArr[i] + " ");
+			}
+		}
+}

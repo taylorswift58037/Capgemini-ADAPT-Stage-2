@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Source {
+	public static void main(String[] args) {
+		int n, i, j;
+		Scanner in = new Scanner(System.in);
+		n = in.nextInt();
+		if (n < 0) {
+			System.out.print("Invalid Input");
+			System.exit(0);
+		}
+		else {
+			int a[] = new int[n];
+			for (i = 0; i < n; i++) {
+				a[i] = in .nextInt();
+				if (a[i] < 0) {
+					System.out.print("Invalid Input");
+					System.exit(0);
+				}
+			}
+			int b[] = new int[n];
+			for (i = 0; i < n; i++) {
+				b[i] = in .nextInt();
+				if (b[i] < 0) {
+					System.out.print("Invalid Input");
+					System.exit(0);
+				}
+			}
+		int output1[] = new int[n];
+		for (i = 0; i < n; i++) {
+			if (a[i] > b[i]) {
+				output1[i] = a[i];
+			}
+			else {
+				output1[i] = b[i];
+			}
+		}
+		for (i = 0; i < n; i++) {
+			System.out.println(output1[i]);
+			}
+		}
+	}
+}

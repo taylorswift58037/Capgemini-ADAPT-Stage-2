@@ -1,0 +1,118 @@
+import java.util.*;
+
+class Address {
+	String l1,l2,city,pin;
+	Address(String a,String b,String c,String d) {
+		l1=a;
+		l2=b;
+		city=c;
+		pin=d;
+		}
+	public String getL1() {
+		return l1;
+	}
+	public void setL1(String l1) {
+		this.l1 = l1;
+	}
+	public String getL2() {
+		return l2;
+	}
+	public void setL2(String l2) {
+		this.l2 = l2;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getPin() {
+		return pin;
+	}
+	public void setPin(String pin) {
+		this.pin = pin;
+	}
+}
+
+class Customer {
+	String custid,custname;
+	Address address;
+	public Customer(String custid, String custname, Address address) {
+		super();
+		this.custid = custid;
+		this.custname = custname;
+		this.address = address;
+	}
+	public String getCustid() {
+		return custid;
+	}
+	public void setCustid(String custid) {
+		this.custid = custid;
+	}
+	public String getCustname() {
+		return custname;
+	}
+	public void setCustname(String custname) {
+		this.custname = custname;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+}
+
+class RegCustomer extends Customer {
+	double fees;
+	RegCustomer(String custid, String custname, Address address,double fees) {
+		super(custid,custname,address);
+		this.fees=fees;
+		}
+	void setcustid(String x) {
+		this.custid=x;
+	}
+	void setcustname(String x) {
+		this.custname=x;
+	}
+	void setfees(double x) {
+		this.fees=x;
+	}
+	void setl1(String x) {
+		this.address.l1=x;
+	}
+	void setl2(String x) {
+		this.address.l2=x;
+	}
+	void setcity(String x) {
+		this.address.city=x;
+	}
+	void setpin(String x) {
+		this.address.pin=x;
+	}
+	double getfees() {
+		return this.fees;
+	}
+
+	void display() {
+		System.out.println("CustomerId:"+this.custid+"\nCustomerName:"+this.custname+"\nCustomerfees:"+this.fees);
+		System.out.println("Address1:"+this.address.l1+"\nAddress2:"+this.address.l2+"\nCity:"+this.address.city);
+		System.out.println("Pin:"+this.address.pin);
+		}
+}
+
+public class Source {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		String l1=sc.nextLine();
+		String l2=sc.nextLine();
+		String city=sc.nextLine();
+		String pin=sc.nextLine();
+		Address a=new Address(l1,l2,city,pin);
+		String custId=sc.nextLine();
+		String custName=sc.nextLine();
+		double fees=sc.nextDouble();
+		RegCustomer ob=new RegCustomer(custId,custName,a,fees);
+		ob.display();
+	}
+}

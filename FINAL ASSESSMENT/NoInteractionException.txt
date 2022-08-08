@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+class NoInteractionException extends Exception {
+	NoInteractionException() {
+		System.out.println("This Exception is Occured due to No-Interaction");
+	}
+}
+
+class Trainer {
+	void askQuestion(String ques, String ans) {
+		if(ans.equals("null")) {
+			NoInteractionException n = new NoInteractionException();
+			System.out.println("NoInteractionException");
+		}
+		else {
+			System.out.println("Question:"+ques);
+			System.out.println("Answer:"+ans);
+		}
+	}
+}
+public class Source {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String ques = sc.nextLine();
+		String ans = sc.nextLine();
+		Trainer t = new Trainer();
+		t.askQuestion(ques, ans);
+	}
+}

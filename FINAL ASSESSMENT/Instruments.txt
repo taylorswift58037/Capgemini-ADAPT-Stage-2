@@ -1,0 +1,56 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+abstract class Instrument  { 
+	abstract void play(); 
+} 
+
+class Piano extends Instrument {
+	@Override 
+	void play() { 
+		System.out.println("Piano");
+	}
+}
+
+class Flute extends Instrument { 
+	@Override 
+	void play() { 
+		System.out.println("Flute"); 
+	} 
+}
+
+class Guitar extends Instrument { 
+	@Override
+	void play() { 
+		System.out.println("Guitar");
+		} 
+}
+
+public class Source {
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		Instrument[] is = new Instrument[10];
+		int a = in.nextInt();
+		if(a==1) {
+			for(int i = 0; i < 10; i++) {
+				is[i] = new Piano();
+				is[i].play();
+			}
+		}
+		else if(a==2) {
+			for(int i = 0; i < 10; i++) {
+				is[i] = new Flute();
+				is[i].play();
+			}
+		}
+		else {
+			for(int i = 0; i < 10; i++) {
+				is[i] = new Guitar();
+				is[i].play();
+			}
+		}
+	}
+}

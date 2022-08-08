@@ -1,0 +1,18 @@
+import java.util.*;
+
+public class Source {
+	public static String stringX(String str){
+		int len = str.length();
+		if(len<3) {
+			return str;
+		}
+		String subStr = str.substring(1,len-1);
+		subStr = subStr.replace("x","");
+		return str.charAt(0)+subStr+str.charAt(len-1);
+	}
+	public static void main(String args[]) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		String str = sc.next();
+		System.out.println(stringX(str));
+	}
+}

@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Source {
+	public static void main(String args[]) {
+		Scanner s = new Scanner(System.in);
+		String name = s.next();
+		int a = s.nextInt();
+		String g = s.next();
+		String name1 = s.next();
+		int a1 = s.nextInt();
+		String g1 = s.next();
+		if(name.equalsIgnoreCase(name1) && a==a1 && g.equalsIgnoreCase(g1)) {
+			System.out.println("Same");
+		}
+		else {
+			System.out.println("Different");
+		}
+	}
+}

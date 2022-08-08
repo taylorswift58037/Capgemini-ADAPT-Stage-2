@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Source {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n, res = 0, rem;
+		n = sc.nextInt();
+		if(n>32767) {
+			System.out.println("Number too large");
+		}
+		else {
+			while(n > 0) {
+			rem = n%10;
+			n /= 10;
+			res = res*10 + (rem + 2);
+			}
+			while(res > 0){
+			rem = res%10;
+			res /= 10;
+			n = n*10 + rem;
+			}
+		System.out.println(n);
+		}
+	}
+}

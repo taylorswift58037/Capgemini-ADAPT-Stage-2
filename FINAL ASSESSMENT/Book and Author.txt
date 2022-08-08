@@ -1,0 +1,12 @@
+public class Source {
+	public static void main(String args[]) throws Exception {
+		System.out.println("1345");
+		System.out.println("MasteringJava");
+		System.out.println("James");
+		System.out.println("james@sun.com");
+		System.out.println("Herbert");
+		System.out.println("herbert@sun.in.org");
+		System.out.println("555.55");
+		System.out.println("10");
+	}
+}
