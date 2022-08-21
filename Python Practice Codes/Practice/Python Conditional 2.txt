@@ -1,0 +1,14 @@
+def main():
+    h = int(input())
+    p = int(input())
+    b = int(input())
+    if h>p and p>b:
+        if h**2 == p**2 + b**2:
+            print("RIGHT ANGLE TRIANGLE")
+        else:
+            print("NOT RIGHT ANGLE TRIANGLE")
+    else:
+        print("INVALID_INPUT")
+
+if __name__=="__main__":
+    main()

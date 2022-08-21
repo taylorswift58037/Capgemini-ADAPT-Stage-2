@@ -1,0 +1,26 @@
+def is_prime_number(num: int):
+    for i in range(2,(num//2)+1):
+        if num%i==0:
+            return False
+    return True
+
+def get_prime_numbers(a: int, b: int):
+    l = []
+    for i in range(a,b+1):
+        if(is_prime_number(i)):
+            l.append(i)
+    return l
+
+def main():
+    a = int(input())
+    b = int(input())
+    if (a>b) or (a<3 or b<3 or a>1000 or b>1000):
+        print("INVALID_INPUT")
+    else:
+        lst = get_prime_numbers(a,b)
+        sum = 0
+        for i in lst:
+            sum += i
+        print(sum)
+
+main()

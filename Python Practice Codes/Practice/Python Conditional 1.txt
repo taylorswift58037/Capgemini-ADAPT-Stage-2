@@ -1,0 +1,18 @@
+def main():
+    p = int(input())
+    c = int(input())
+    m = int(input())
+    a = (p+c+m)/3
+    if a>=70:
+        print("DISTINCTION")
+    elif a>=60:
+        print("FIRST")
+    elif a>=50:
+        print("SECOND")
+    elif a>=40:
+        print("THIRD")
+    elif a<40:
+        print("FAIL")
+
+if __name__=="__main__":
+    main()

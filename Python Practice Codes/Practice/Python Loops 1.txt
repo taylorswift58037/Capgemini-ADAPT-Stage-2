@@ -1,0 +1,18 @@
+def decimalToBinary(num):
+    res = []
+    while(num>0):
+        res.append(num%2)
+        num = num//2
+    return res
+
+def main():
+    n = int(input())
+    if n>=1 and n<999:
+        lst = decimalToBinary(n)[::-1]
+        for i in lst:
+            print(i,end="")
+    else:
+        print("INVALID_INPUT")
+
+if __name__=="__main__":
+    main()

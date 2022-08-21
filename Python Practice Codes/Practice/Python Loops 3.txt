@@ -1,0 +1,20 @@
+def is_armstrong_number(num1):
+    temp = num1
+    sum = 0
+    while temp>1:
+        digit = temp%10
+        sum += digit**3
+        temp //= 10
+    if(sum==num1):
+        return "ARMSTRONG"
+    else:
+        return "NOT ARMSTRONG"
+
+def main():
+    a = int(input())
+    if len(a)!=3:
+        print("INVALID_INPUT")
+    else:
+        print(is_armstrong_number(int(a)))
+
+main()
