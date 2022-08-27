@@ -1,0 +1,82 @@
+import java.util.regex.*;
+
+class Product {
+	String name;
+	double price;
+	String coupon;
+	public Product() {
+		super();
+	}
+	public Product(String name, double price, String coupon) {
+		this.name = name;
+		this.price = price;
+		this.coupon = coupon;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public String getCoupon() {
+		return coupon;
+	}
+	public void setCoupon(String coupon) {
+		this.coupon = coupon;
+	}
+	@Override
+	public String toString() {
+		return "Product [name=" + name + ", price=" + price + ", coupon=" + coupon + "]";
+	}
+}
+
+class Validator {
+	public String validateCoupon(Product p) throws Exception {
+		String arr[] = (p.getCoupon()).split("-");
+		Pattern p1 = Pattern.compile("[A-Za-z]");
+		Matcher m1 = p1.matcher(arr[0]);
+		Pattern p2 = Pattern.compile("[0-9]");
+		Matcher m2 = p2.matcher(arr[1]);
+		int discVal = Integer.parseInt(arr[1]);
+		if(m1.find() && m2.find() && discVal>=10 && discVal<=25) {
+			return "Valid Coupon";
+		}
+		else {
+			throw new InvalidCouponException("Invalid Coupon");
+		}
+	}
+	public double netPrice(Product p) {
+		String arr[] = (p.getCoupon()).split("-");
+		double discVal = Double.parseDouble(arr[1]);
+		double totalPrice = p.getPrice();
+		double discountPrice = (discVal/100.0)*p.getPrice();
+		return totalPrice - discountPrice;
+	}
+}
+
+class InvalidCouponException extends Exception {
+	private static final long serialVersionUID = 1L;
+	public InvalidCouponException() {
+		super();
+	}
+
+	public InvalidCouponException(String message) {
+		super(message);
+	}
+}
+
+public class Source {
+	public static void main(String[] args) throws Exception {
+		Product obj = new Product("IPhone",25000,"IPhone-10");
+		Validator val = new Validator();
+		String valCop = val.validateCoupon(obj);
+		double price = val.netPrice(obj);
+		System.out.println("valCop = "+valCop+"\nprice = "+price);
+	}
+}
