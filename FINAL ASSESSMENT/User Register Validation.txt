@@ -1,0 +1,52 @@
+class Register {
+	String email, pass, cpass;
+	
+	public Register() {
+		super();
+	}
+
+	public void checkCredentials(String email, String pass, String cpass) throws Exception {
+		if(email.contains("@")==false || email.contains(".")==false) {
+			System.out.println(new InvalidEmailException("Invalid Email"));
+		}
+		else if(pass.length()<6) {
+			System.out.println(new InvalidPasswordException("Invalid Password"));
+		}
+		else if(cpass!=pass) {
+			System.out.println(new PasswordNotMatchException("Password not match"));
+		}
+		else {
+			System.out.println("Registered");
+		}
+	}
+}
+
+class InvalidEmailException extends Exception {
+	private static final long serialVersionUID = 1L;
+	public InvalidEmailException(String message) {
+		super(message);
+	}
+}
+
+class InvalidPasswordException extends Exception {
+	private static final long serialVersionUID = 1L;
+	
+	public InvalidPasswordException(String message) {
+		super(message);
+	}
+}
+
+class PasswordNotMatchException extends Exception {
+	private static final long serialVersionUID = 1L;
+
+	public PasswordNotMatchException(String message) {
+		super(message);
+	}
+}
+
+public class Source {
+	public static void main(String[] args) throws Exception {
+		Register user = new Register();
+		user.checkCredentials("tushar@gmailcom","hiiiiii","hiiiiii");
+	}
+}
