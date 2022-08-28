@@ -1,5 +1,4 @@
 class Register {
-	String email, pass, cpass;
 	
 	public Register() {
 		super();
