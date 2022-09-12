@@ -11,7 +11,7 @@ def is_armstrong_number(num1):
         return "NOT ARMSTRONG"
 
 def main():
-    a = int(input())
+    a = input()
     if len(a)!=3:
         print("INVALID_INPUT")
     else:
