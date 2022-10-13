@@ -1,0 +1,135 @@
+class Customer {
+	int id;
+	String name;
+	double walletBalance;
+	String address;
+	public Customer() {
+		super();
+	}
+	public Customer(int id, String name, double walletBalance, String address) {
+		this.id = id;
+		this.name = name;
+		this.walletBalance = walletBalance;
+		this.address = address;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getWalletBalance() {
+		return walletBalance;
+	}
+	public void setWalletBalance(double walletBalance) {
+		this.walletBalance = walletBalance;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", name=" + name + ", walletBalance=" + walletBalance + ", address=" + address + "]";
+	}
+}
+
+class Item {
+	int id;
+	String name;
+	String companyName;
+	double price;
+	boolean isInStock;
+	public Item() {
+		super();
+	}
+	public Item(int id, String name, String companyName, double price, boolean isInStock) {
+		this.id = id;
+		this.name = name;
+		this.companyName = companyName;
+		this.price = price;
+		this.isInStock = isInStock;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCompanyName() {
+		return companyName;
+	}
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public boolean getIsInStock() {
+		return isInStock;
+	}
+	public void setIsInStock(boolean isInStock) {
+		this.isInStock = isInStock;
+	}
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", companyName=" + companyName + ", price=" + price
+				+ ", isInStock=" + isInStock + "]";
+	}
+}
+
+class ShoppingWebsite {
+	public String purchaseItem(Item i,Customer c) throws ItemOutOfStockException, InsufficientBalanceException {
+		if (!i.getIsInStock()) {
+			throw new ItemOutOfStockException("item is out of stock");
+		}
+		else if (i.getPrice()>c.walletBalance) {
+			throw new InsufficientBalanceException("customer wallet balance is not sufficient");
+		}
+		else {
+			return "Order Successful";
+		}
+	}
+}
+
+class ItemOutOfStockException extends Exception {
+	private static final long serialVersionUID = 1L;
+	public ItemOutOfStockException() {
+		super();
+	}
+	public ItemOutOfStockException(String m) {
+		super(m);
+	}
+}
+
+class InsufficientBalanceException extends Exception {
+	private static final long serialVersionUID = 1L;
+	public InsufficientBalanceException() {
+		super();
+	}
+	public InsufficientBalanceException(String m) {
+		super(m);
+	}
+}
+
+public class Source {
+	public static void main(String[] args) throws ItemOutOfStockException, InsufficientBalanceException {
+	}
+}
